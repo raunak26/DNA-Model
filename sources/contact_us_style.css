@@ -9,7 +9,6 @@
 
 body {
     background-color: #141414;
-    /* background-color: #fff; */
     min-height: 100vh;
     text-align: center;
 }
@@ -87,7 +86,6 @@ body {
 
 .contact-title {
     margin-top: 15vh;
-    transition: all 4s ease-in-out;
     color: #fff;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -96,7 +94,6 @@ body {
 
 form {
     margin-top: 50px;
-    transition: all 4s ease-in-out;
     width: 70vw;
 }
 
