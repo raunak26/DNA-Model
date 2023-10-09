@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Three.js - Template - Complex</title>
+    <link rel="stylesheet" href="./benefits_style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Cornucopia</a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="./index.html" style="--i:0;">Home</a>
+            <a href="./mission.html" style="--i:1;">Mission</a>
+            <a href="./benefits.html" style="--i:2;">Benefits</a>
+            <a href="./about_us.html" style="--i:3;">About Us</a>
+            <a href="./contact_us.html" style="--i:4;">Contact</a>
+        </nav>
+    </header>
+
+    <div class="benefits">
+        <h2>Benefits</h2>
+        <p>
+            In the ever-evolving landscape of scientific research, the integration of Artificial 
+            Intelligence (AI) and Machine Learning (ML) models has emerged as a transformative 
+            force, promising to accelerate the pace of discovery, enhance experimental precision, 
+            and ultimately redefine the scientific method.
+        </p>
+        <div class="buttons">
+            <div class="button-container top">
+                <div class="button-container-subset">
+                    <a class="dialog-button" onclick="openDialog(1)">
+                        <img src="./images/flask-vial-solid.svg" alt="Icon">
+                        <p>Optimized Experimentation</p>
+                    </a>
+                    <a class="dialog-button" onclick="openDialog(2)">
+                        <img src="./images/comment-solid.svg" alt="Icon">
+                        <p>Directed Feedback</p>
+                    </a>
+                </div>
+                <div class="button-container-subset">
+                    <a class="dialog-button" onclick="openDialog(3)">
+                        <img src="./images/magnifying-glass-solid.svg" alt="Icon">
+                        <p>Predictive Insights</p>
+                    </a>
+                    <a class="dialog-button" onclick="openDialog(4)">
+                        <img src="./images/pills-solid.svg" alt="Icon">
+                        <p>Accelerated Drug Discovery</p>
+                    </a>
+                </div>
+            </div>
+            <div class="button-container bottom">
+                <div class="button-container-subset">
+                    <a class="dialog-button" onclick="openDialog(5)">
+                        <img src="./images/school-solid.svg" alt="Icon">
+                        <p>Cross-Disciplinary Applications</p>
+                    </a>
+                    <a class="dialog-button" onclick="openDialog(6)">
+                        <img src="./images/database-solid.svg" alt="Icon">
+                        <p>Data Integration</p>
+                    </a>
+                </div>
+                <div class="button-container-subset">
+                    <a class="dialog-button" onclick="openDialog(7)">
+                        <img src="./images/book-open-reader-solid.svg" alt="Icon">
+                        <p>Resource Efficiency</p>
+                    </a>
+                    <a class="dialog-button" onclick="openDialog(8)">
+                        <img src="./images/user-plus-solid.svg" alt="Icon">
+                        <p>Scientific Collaboration</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="dialog-1" class="dialog">
+            <h2>Optimized Experimentation</h2>
+            <p>
+                One of the most significant advantages of Cornucopia's S.A.M 
+                is their ability to optimize experimental design. By analyzing 
+                vast datasets, S.A.M can suggest the most relevant variables, 
+                conditions, and parameters for an experiment, leading to efficient 
+                resource allocation and reduced trial-and-error efforts.
+            </p>
+            <button onclick="closeDialog(1)">Close</button>
+        </div>
+
+        <div id="dialog-2" class="dialog">
+            <h2>Directed Feedback</h2>
+            <p>
+                S.A.M provides researchers with real-time, context-aware 
+                feedback during experiments. They can identify deviations 
+                from expected results, potential sources of error, or novel 
+                patterns that human scientists might overlook. This continuous 
+                feedback loop fosters rapid adjustments and more accurate 
+                interpretations of experimental outcomes.
+            </p>
+            <button onclick="closeDialog(2)">Close</button>
+        </div>
+
+        <div id="dialog-3" class="dialog">
+            <h2>Predictive Insights</h2>
+            <p>These models excel in predicting experimental outcomes based 
+                on historical data. By analyzing past experiments and their 
+                outcomes, S.A.M can offer valuable insights into potential 
+                results, enabling researchers to prioritize and strategize 
+                experiments effectively. 
+            </p>
+            <button onclick="closeDialog(3)">Close</button>
+        </div>
+
+        <div id="dialog-4" class="dialog">
+            <h2>Accelerated Drug Discovery</h2>
+            <p>
+                In the field of pharmaceuticals, S.A.M has revolutionized 
+                drug discovery. By analyzing molecular structures and 
+                predicting their biological effects, these models 
+                expedite the identification of potential drug candidates and 
+                significantly reduce the time and cost involved.
+            </p>
+            <button onclick="closeDialog(4)">Close</button>
+        </div>
+
+        <div id="dialog-5" class="dialog">
+            <h2>Cross-Disciplinary Applications</h2>
+            <p>
+                Cornucopia's S.A.M transcends disciplinary boundaries, offering 
+                benefits to fields as diverse as materials science, physics, biology, 
+                and environmental studies. The adaptability and versatility make 
+                it an indispensable tool for interdisciplinary research.
+            </p>
+            <button onclick="closeDialog(5)">Close</button>
+        </div>
+
+        <div id="dialog-6" class="dialog">
+            <h2>Data Integration</h2>
+            <p>
+                S.A.M can seamlessly integrate data from various sources, including 
+                laboratory experiments, literature, and sensor networks. This holistic 
+                approach enhances data-driven decision-making and helps researchers 
+                discover hidden correlations and insights.
+            </p>
+            <button onclick="closeDialog(6)">Close</button>
+        </div>
+
+        <div id="dialog-7" class="dialog">
+            <h2>Resource Efficiency</h2>
+            <p>
+                By minimizing the need for repetitive or low-yield experiments, S.A.M 
+                can help optimize resource utilization. This not only reduces costs 
+                but also minimizes the environmental footprint of research activities.
+            </p>
+            <button onclick="closeDialog(7)">Close</button>
+        </div>
+
+        <div id="dialog-8" class="dialog">
+            <h2>Scientific Collaboration</h2>
+            <p>
+                Cornucopia's S.A.M facilitates collaboration among scientists, as they 
+                can share data and insights in a standardized format. This promotes 
+                transparency and accelerates the dissemination of knowledge.
+            </p>
+            <button onclick="closeDialog(8)">Close</button>
+        </div>
+        <script>
+            // Your JavaScript code goes here
+            function openDialog(dialogNumber) {
+                const dialog = document.getElementById(`dialog-${dialogNumber}`);
+                dialog.style.display = 'block';
+            }
+
+            function closeDialog(dialogNumber) {
+                const dialog = document.getElementById(`dialog-${dialogNumber}`);
+                dialog.style.display = 'none';
+            }
+        </script>
+    </div>
+</body>
+
+</html>
