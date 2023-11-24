@@ -38,17 +38,17 @@ module.exports = async (req, res) => {
         // res.status(200).send('Thank you for contacting us! We will get back to you soon.');
         try {
             console.log('Trying to send email');
-            // transporter.sendMail(mailOptions)
-            //     .then(() => {
-            //         console.log('Successfully sent email');
-            //         res.status(200).send('Thank you for contacting us! We will get back to you soon.');
-            //     })
-            //     .catch((error) => {
-            //         console.log('Something broke');
-            //         console.error(error);
-            //         res.status(500).send('Internal Server Error');
-            //     });
-            res.status(200).send('Thank you for contacting us! We will get back to you soon.');
+            transporter.sendMail(mailOptions)
+                .then(() => {
+                    console.log('Successfully sent email');
+                    res.status(200).send('Thank you for contacting us! We will get back to you soon.');
+                })
+                .catch((error) => {
+                    console.log('Something broke');
+                    console.error(error);
+                    res.status(500).send('Internal Server Error');
+                });
+            // res.status(200).send('Thank you for contacting us! We will get back to you soon.');
         } catch (error) {
             console.log('Something broke');
             console.error(error);
