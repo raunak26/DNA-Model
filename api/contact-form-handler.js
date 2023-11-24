@@ -13,8 +13,8 @@ module.exports = async (req, res) => {
             const formData = parse(body);
             const { name, email, message } = formData;
 
-        // Create the email content (similar to your PHP code)
-        const to = 'himay75@gmail.com'; // Replace with your email address
+        // Create the email content
+        const to = 'himay75@gmail.com';
         const subject = '[IMPORTANT] New Contact Form Submission';
         const messageBody = `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`;
 
@@ -32,10 +32,9 @@ module.exports = async (req, res) => {
             from: `"${name}" <${email}>`,
             to: to,
             subject: subject,
-            text: messageBody, // Use messageBody instead of message
+            text: messageBody,
         };
 
-        // res.status(200).send('Thank you for contacting us! We will get back to you soon.');
         try {
             console.log('Trying to send email');
             transporter.sendMail(mailOptions)
@@ -48,7 +47,6 @@ module.exports = async (req, res) => {
                     console.error(error);
                     res.status(500).send('Internal Server Error');
                 });
-            // res.status(200).send('Thank you for contacting us! We will get back to you soon.');
         } catch (error) {
             console.log('Something broke');
             console.error(error);
