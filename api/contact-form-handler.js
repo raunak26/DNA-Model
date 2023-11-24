@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       const { name, email, message } = formData;
 
       // Create the email content (similar to your PHP code)
-      const to = 'himay75@gmail.com, anandraunak2000@gmail.com'; // Replace with your email address
+      const to = 'himay75@gmail.com'; // Replace with your email address
       const subject = 'New Contact Form Submission';
       const messageBody = `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`;
 
