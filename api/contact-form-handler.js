@@ -1,4 +1,5 @@
 const { parse } = require('querystring');
+const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
@@ -8,19 +9,37 @@ module.exports = async (req, res) => {
       body += chunk.toString();
     });
 
-    req.on('end', () => {
+    req.on('end', async () => {
       const formData = parse(body);
       const { name, email, message } = formData;
 
-      // Create the email content (similar to your PHP code)
-      const to = 'himay75@gmail.com'; // Replace with your email address
-      const subject = 'New Contact Form Submission';
-      const messageBody = `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`;
+      // Configure the email transporter
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'anandraunak2000@gmail.com', // Replace with your Gmail address
+          pass: 'Real@Madrid12345', // Replace with your Gmail password
+        },
+      });
 
-      // In a real-world scenario, you would send an email using a Node.js email library or an external service
+      // Email content
+      const mailOptions = {
+        from: 'anandraunak2000@gmail.com', // Replace with your Gmail address
+        to: 'himay75@gmail.com', // Replace with your email address
+        subject: 'New Contact Form Submission',
+        text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+      };
 
-      // Send a response to the client
-      res.status(200).send('Thank you for contacting us! We will get back to you soon.');
+      try {
+        // Send the email
+        await transporter.sendMail(mailOptions);
+
+        // Send a response to the client
+        res.status(200).send('Thank you for contacting us! We will get back to you soon.');
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      }
     });
   } else {
     // Return an error for non-POST requests

@@ -6,6 +6,11 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "vercel": {
+    "builds": [{ "src": "api/**/*.js", "use": "@vercel/node" }],
+    "routes": [{ "src": "/api/(.*)", "dest": "api/$1" }],
+    "files": ["public", "api/**/*.js", "vercel.json"]
+  },
   "dependencies": {
     "lil-gui": "^0.16.1",
     "react": "^18.2.0",
