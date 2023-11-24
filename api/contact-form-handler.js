@@ -17,14 +17,14 @@ module.exports = async (req, res) => {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'cornucopiabiologics@gmail.com', // Replace with your Gmail address
-          pass: 'Cornucopiabio12345', // Replace with your Gmail password
+          user: 'cornsandemails@yahoo.com', // Replace with your Gmail address
+          pass: 'cornucopiabio12345', // Replace with your Gmail password
         },
       });
 
       // Email content
       const mailOptions = {
-        from: 'cornucopiabiologics@gmail.com', // Replace with your Gmail address
+        from: 'cornsandemails@yahoo.com', // Replace with your Gmail address
         to: 'himay75@gmail.com', // Replace with your email address
         subject: 'New Contact Form Submission',
         text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
