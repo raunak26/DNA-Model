@@ -38,6 +38,15 @@
         </p>
     </div>
     <div id="form-container">
+        <form id="contact-form">
+            <!-- Your form fields go here -->
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Message" rows="4" required></textarea><br>
+            <input type="submit" value="SEND MESSAGE">
+        </form>
+    </div>
+    <!-- <div id="form-container">
         <div class="contact-form">
             <form id="contact-form" method="post" action="../api/contact-form-handler.js">
                 <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -49,8 +58,7 @@
                 <input type="submit" class="form-control submit" value="SEND MESSAGE">
             </form>
         </div>
-    </div>
-
+    </div> -->
     <div id="response-container" style="display: none;">
         <!-- Response message and button go here -->
         <div id="response-message"></div>
