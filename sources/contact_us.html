@@ -39,7 +39,6 @@
     </div>
     <div id="form-container">
         <form id="contact-form">
-            <!-- Your form fields go here -->
             <input type="text" name="name" class="form-control" placeholder="Your Name" required><br>
             <input type="email" name="email" class="form-control" placeholder="Your Email" required><br>
             <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea><br>
@@ -48,12 +47,10 @@
     </div>
     
     <div id="response-container" style="display: none;">
-        <!-- Response message and button go here -->
-        <p id="response-message" style="margin-top: 15vh; color: #fff; font-family: 'Poppins', sans-serif; font-size: 1.5rem; line-height: 1.5; text-decoration: solid; text-decoration-color: #fff;"></p>
+        <p id="response-message" style="margin-top: 12vh; color: #fff; font-family: 'Poppins', sans-serif; font-size: 1.5rem; line-height: 1.5; text-decoration: solid; text-decoration-color: #fff;"></p>
         <button id="submit-another" class="form-control submit">Submit Another Form</button>
     </div>
     
-    <!-- Your scripts go here -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const formContainer = document.getElementById('form-container');
