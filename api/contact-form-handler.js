@@ -2,7 +2,6 @@ const { parse } = require('querystring');
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
-    console.log(`THIS IS THE REQUEST: " ${req}`)
     if (req.method === 'POST') {
         let body = '';
 
@@ -27,33 +26,33 @@ module.exports = async (req, res) => {
                     user: 'anandraunak2000@gmail.com',
                     pass: 'jyez uwhs bakb sgke',
                 },
+            });
+
+            const mailOptions = {
+                from: `"${name}" <${email}>`,
+                to: to,
+                subject: subject,
+                text: messageBody,
+            };
+
+            try {
+                console.log('Trying to send email');
+                transporter.sendMail(mailOptions)
+                    .then(() => {
+                        console.log('Successfully sent email');
+                        res.status(200).send('Thank you for contacting us! We will get back to you soon.');
+                    })
+                    .catch((error) => {
+                        console.log('Something broke');
+                        console.error(error);
+                        res.status(500).send('Internal Server Error');
+                    });
+            } catch (error) {
+                console.log('Something broke');
+                console.error(error);
+                res.status(500).send('Internal Server Error');
+            }
         });
-
-        const mailOptions = {
-            from: `"${name}" <${email}>`,
-            to: to,
-            subject: subject,
-            text: messageBody,
-        };
-
-        try {
-            console.log('Trying to send email');
-            transporter.sendMail(mailOptions)
-                .then(() => {
-                    console.log('Successfully sent email');
-                    res.status(200).send('Thank you for contacting us! We will get back to you soon.');
-                })
-                .catch((error) => {
-                    console.log('Something broke');
-                    console.error(error);
-                    res.status(500).send('Internal Server Error');
-                });
-        } catch (error) {
-            console.log('Something broke');
-            console.error(error);
-            res.status(500).send('Internal Server Error');
-        }
-    });
     } else {
         // Return an error for non-POST requests
         res.status(405).send('Method Not Allowed');

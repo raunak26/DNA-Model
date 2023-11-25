@@ -77,32 +77,28 @@
     
             contactForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-    
+
                 // Get form data using FormData
                 const formData = new FormData(contactForm);
-
-                for (const [key, value] of formData.entries()) {
-                    console.log(`${key}: ${value}`);
-                }
 
                 const formDataObject = {};
                 formData.forEach((value, key) => {
                     formDataObject[key] = value;
                 });
-    
+
                 // Simulate form submission
                 fetch('/api/contact-form-handler.js', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded', // Set content type to URL-encoded
                     },
-                    body: JSON.stringify(formDataObject),
+                    body: new URLSearchParams(formDataObject).toString(), // Convert to URL-encoded string
                 })
                 .then(response => response.text())
                 .then(message => {
                     // Display the response message
                     responseMessage.innerHTML = message;
-    
+
                     // Hide the form container, show the response container
                     formContainer.style.display = 'none';
                     responseContainer.style.display = 'block';
