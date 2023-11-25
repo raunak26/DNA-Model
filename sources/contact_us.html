@@ -10,6 +10,7 @@
 <body>
     <header class="header">
         <a href="./index.html" class="logo">Cornucopia</a>
+
         <input type="checkbox" id="check">
         <label for="check" class="icons"> 
             <i class='bx bx-menu' id="menu-icon"></i>
@@ -24,11 +25,13 @@
             <a href="./contact_us.html" style="--i:4;">Contact</a>
         </nav>
     </header>
+
     <div class="contact-title">
         <p id="text">We welcome you to reach out, collaborate, and explore the boundless possibilities 
             that Cornucopia offers. Together, we'll unlock the treasures of knowledge hidden 
             within the vast landscape of biotech research.
         </p>
+
         <p>
             Join us in accelerating the future of biotechnology at Cornucopia - where science, 
             technology, and innovation converge to shape a brighter tomorrow.
@@ -50,19 +53,19 @@
     <div id="form-container">
         <form id="contact-form">
             <!-- Your form fields go here -->
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required><br>
-            <input type="email" name="email" class="form-control" placeholder="Your Email" required><br>
-            <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea><br>
-            <input type="submit" class="form-control submit" value="SEND MESSAGE">
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Message" rows="4" required></textarea><br>
+            <input type="submit" value="SEND MESSAGE">
         </form>
     </div>
-
+    
     <div id="response-container" style="display: none;">
         <!-- Response message and button go here -->
-        <p>Thank you for contacting us! We will get back to you soon.</p>
-        <button id="submit-another" class="form-control submit">Submit Another Form</button>
+        <div id="response-message"></div>
+        <button id="submit-another">Submit Another Form</button>
     </div>
-
+    
     <!-- Your scripts go here -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -71,7 +74,7 @@
             const responseMessage = document.getElementById('response-message');
             const submitAnotherBtn = document.getElementById('submit-another');
             const contactForm = document.getElementById('contact-form');
-
+    
             contactForm.addEventListener('submit', function (event) {
                 event.preventDefault();
 
@@ -102,12 +105,12 @@
                 })
                 .catch(error => console.error(error));
             });
-
+    
             submitAnotherBtn.addEventListener('click', function () {
                 // Show the form container, hide the response container
                 formContainer.style.display = 'block';
                 responseContainer.style.display = 'none';
-
+    
                 // Reset the form
                 contactForm.reset();
             });

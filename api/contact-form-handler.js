@@ -1,14 +1,11 @@
 const { parse } = require('querystring');
 const nodemailer = require('nodemailer');
-
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
         let body = '';
-
         req.on('data', (chunk) => {
             body += chunk.toString();
         });
-
         req.on('end', () => {
             const formData = parse(body);
             const { name, email, message } = formData;
