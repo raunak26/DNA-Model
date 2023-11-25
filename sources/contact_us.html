@@ -37,15 +37,6 @@
             technology, and innovation converge to shape a brighter tomorrow.
         </p>
     </div>
-    <div id="form-container">
-        <form id="contact-form">
-            <!-- Your form fields go here -->
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="email" name="email" placeholder="Your Email" required><br>
-            <textarea name="message" placeholder="Message" rows="4" required></textarea><br>
-            <input type="submit" value="SEND MESSAGE">
-        </form>
-    </div>
     <!-- <div id="form-container">
         <div class="contact-form">
             <form id="contact-form" method="post" action="../api/contact-form-handler.js">
@@ -59,12 +50,23 @@
             </form>
         </div>
     </div> -->
+    <div id="form-container">
+        <form id="contact-form">
+            <!-- Your form fields go here -->
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Message" rows="4" required></textarea><br>
+            <input type="submit" value="SEND MESSAGE">
+        </form>
+    </div>
+    
     <div id="response-container" style="display: none;">
         <!-- Response message and button go here -->
         <div id="response-message"></div>
         <button id="submit-another">Submit Another Form</button>
     </div>
     
+    <!-- Your scripts go here -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const formContainer = document.getElementById('form-container');
@@ -72,33 +74,42 @@
             const responseMessage = document.getElementById('response-message');
             const submitAnotherBtn = document.getElementById('submit-another');
             const contactForm = document.getElementById('contact-form');
-
+    
             contactForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-
-                // Simulate form submission
+    
+                // Get form data using FormData
                 const formData = new FormData(contactForm);
+                const formDataObject = {};
+                formData.forEach((value, key) => {
+                    formDataObject[key] = value;
+                });
+    
+                // Simulate form submission
                 fetch('/api/contact-form-handler.js', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formDataObject),
                 })
                 .then(response => response.text())
                 .then(message => {
                     // Display the response message
                     responseMessage.innerHTML = message;
-
+    
                     // Hide the form container, show the response container
                     formContainer.style.display = 'none';
                     responseContainer.style.display = 'block';
                 })
                 .catch(error => console.error(error));
             });
-
+    
             submitAnotherBtn.addEventListener('click', function () {
                 // Show the form container, hide the response container
                 formContainer.style.display = 'block';
                 responseContainer.style.display = 'none';
-
+    
                 // Reset the form
                 contactForm.reset();
             });
