@@ -2,6 +2,7 @@ const { parse } = require('querystring');
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
+    console.log(`THIS IS THE REQUEST: " ${req}`)
     if (req.method === 'POST') {
         let body = '';
 
@@ -13,19 +14,19 @@ module.exports = async (req, res) => {
             const formData = parse(body);
             const { name, email, message } = formData;
 
-        // Create the email content
-        const to = 'anandraunak2000@gmail.com';
-        const subject = '[IMPORTANT] New Contact Form Submission';
-        const messageBody = `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`;
+            // Create the email content
+            const to = 'anandraunak2000@gmail.com';
+            const subject = '[IMPORTANT] New Contact Form Submission';
+            const messageBody = `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`;
 
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
-            auth: {
-                user: 'anandraunak2000@gmail.com',
-                pass: 'jyez uwhs bakb sgke',
-            },
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: 'anandraunak2000@gmail.com',
+                    pass: 'jyez uwhs bakb sgke',
+                },
         });
 
         const mailOptions = {
