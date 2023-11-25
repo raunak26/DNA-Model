@@ -37,34 +37,63 @@
             technology, and innovation converge to shape a brighter tomorrow.
         </p>
     </div>
-    <div class="contact-form">
-        <form id="contact-form" method="post" action="../api/contact-form-handler.js">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            <br>
-            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-            <br>
-            <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
-            <br>
-            <input type="submit" class="form-control submit" value="SEND MESSAGE">
-        </form>
+    <div id="form-container">
+        <div class="contact-form">
+            <form id="contact-form" method="post" action="../api/contact-form-handler.js">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <br>
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                <br>
+                <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
+                <br>
+                <input type="submit" class="form-control submit" value="SEND MESSAGE">
+            </form>
+        </div>
     </div>
+
+    <div id="response-container" style="display: none;">
+        <!-- Response message and button go here -->
+        <div id="response-message"></div>
+        <button id="submit-another">Submit Another Form</button>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const textElement = document.getElementById('text');
-            const textContent = textElement.innerHTML;
-            textElement.innerHTML = '';
+            const formContainer = document.getElementById('form-container');
+            const responseContainer = document.getElementById('response-container');
+            const responseMessage = document.getElementById('response-message');
+            const submitAnotherBtn = document.getElementById('submit-another');
+            const contactForm = document.getElementById('contact-form');
 
-            let i = 0;
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-            function typeWriter() {
-                if (i < textContent.length) {
-                    textElement.innerHTML += textContent.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            }
+                // Simulate form submission
+                const formData = new FormData(contactForm);
+                fetch('/api/contact-form-handler.js', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(message => {
+                    // Display the response message
+                    responseMessage.innerHTML = message;
 
-            typeWriter();
+                    // Hide the form container, show the response container
+                    formContainer.style.display = 'none';
+                    responseContainer.style.display = 'block';
+                })
+                .catch(error => console.error(error));
+            });
+
+            submitAnotherBtn.addEventListener('click', function () {
+                // Show the form container, hide the response container
+                formContainer.style.display = 'block';
+                responseContainer.style.display = 'none';
+
+                // Reset the form
+                contactForm.reset();
+            });
         });
     </script>
 </body>
