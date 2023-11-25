@@ -77,32 +77,25 @@
     
             contactForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-    
-                // Get form data using FormData
+
                 const formData = new FormData(contactForm);
                 const formDataObject = {};
                 formData.forEach((value, key) => {
                     formDataObject[key] = value;
                 });
-    
-                // Simulate form submission
-                fetch('/api/contact-form-handler.js', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formDataObject),
-                })
-                .then(response => response.text())
-                .then(message => {
-                    // Display the response message
-                    responseMessage.innerHTML = message;
-    
-                    // Hide the form container, show the response container
-                    formContainer.style.display = 'none';
-                    responseContainer.style.display = 'block';
-                })
-                .catch(error => console.error(error));
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '../api/contact-form-handler.js', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        // Replace the form with the response
+                        document.getElementById('contact-form-container').innerHTML = xhr.responseText;
+                    }
+                };
+                
+                // Send the form data as a URL-encoded string
+                xhr.send(encodeFormData(formDataObject));
             });
     
             submitAnotherBtn.addEventListener('click', function () {
