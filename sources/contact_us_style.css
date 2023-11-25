@@ -100,6 +100,16 @@ body {
     line-height: 1.5; /* Adjust the line height */
 }
 
+.response-message {
+    margin-top: 15vh;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem; /* Adjust the font size */
+    line-height: 1.5; /* Adjust the line height */
+    text-decoration: solid;
+    text-decoration-color: #fff;
+}
+
 contact-form {
     margin-top: 50px;
     width: 70vw;

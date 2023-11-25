@@ -37,34 +37,67 @@
             technology, and innovation converge to shape a brighter tomorrow.
         </p>
     </div>
-    <div class="contact-form">
-        <form id="contact-form" method="post" action="../api/contact-form-handler.js">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            <br>
-            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-            <br>
-            <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
-            <br>
+    <div id="form-container">
+        <form id="contact-form">
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required><br>
+            <input type="email" name="email" class="form-control" placeholder="Your Email" required><br>
+            <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea><br>
             <input type="submit" class="form-control submit" value="SEND MESSAGE">
         </form>
     </div>
+    
+    <div id="response-container" style="display: none;">
+        <p id="response-message" style="margin-top: 12vh; color: #fff; font-family: 'Poppins', sans-serif; font-size: 1.5rem; line-height: 1.5; text-decoration: solid; text-decoration-color: #fff;"></p>
+        <button id="submit-another" class="form-control submit">Submit Another Form</button>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const textElement = document.getElementById('text');
-            const textContent = textElement.innerHTML;
-            textElement.innerHTML = '';
+            const formContainer = document.getElementById('form-container');
+            const responseContainer = document.getElementById('response-container');
+            const responseMessage = document.getElementById('response-message');
+            const submitAnotherBtn = document.getElementById('submit-another');
+            const contactForm = document.getElementById('contact-form');
+    
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-            let i = 0;
+                // Get form data using FormData
+                const formData = new FormData(contactForm);
 
-            function typeWriter() {
-                if (i < textContent.length) {
-                    textElement.innerHTML += textContent.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            }
+                const formDataObject = {};
+                formData.forEach((value, key) => {
+                    formDataObject[key] = value;
+                });
 
-            typeWriter();
+                // Simulate form submission
+                fetch('/api/contact-form-handler.js', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded', // Set content type to URL-encoded
+                    },
+                    body: new URLSearchParams(formDataObject).toString(), // Convert to URL-encoded string
+                })
+                .then(response => response.text())
+                .then(message => {
+                    // Display the response message
+                    responseMessage.innerHTML = message;
+
+                    // Hide the form container, show the response container
+                    formContainer.style.display = 'none';
+                    responseContainer.style.display = 'block';
+                })
+                .catch(error => console.error(error));
+            });
+    
+            submitAnotherBtn.addEventListener('click', function () {
+                // Show the form container, hide the response container
+                formContainer.style.display = 'block';
+                responseContainer.style.display = 'none';
+    
+                // Reset the form
+                contactForm.reset();
+            });
         });
     </script>
 </body>
