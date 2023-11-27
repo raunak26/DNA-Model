@@ -149,7 +149,7 @@ canvas {
     }
 
     #check:checked~.navbar{
-        height: 17.7rem
+        height: 22rem
     }
 
     .navbar a {
