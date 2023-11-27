@@ -168,4 +168,8 @@ body {
         opacity: 1;
         transition-delay: calc(.15s * var(--i));
     }
+
+    .disclaimer ol{
+        margin-left: 10vw;
+    }
 }
