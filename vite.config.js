@@ -18,7 +18,7 @@ export default defineConfig({
                 benefits: path.resolve('sources', 'benefits.html'),
                 about_us: path.resolve('sources', 'about_us.html'),
                 contact_us: path.resolve('sources', 'contact_us.html'),
-                contact_us: path.resolve('sources', 'demo.html'),
+                demo: path.resolve('sources', 'demo.html'),
             },
         },
     },
