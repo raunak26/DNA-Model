@@ -84,69 +84,46 @@ body {
     display: none;
 }
 
-.contact-title {
-    margin-top: 15vh;
-    color: #fff;
-    margin-left: 5vw;
-    margin-right: 5vw;
-}
-.contact-title {
-    margin-top: 15vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem; /* Adjust the font size */
-    line-height: 1.5; /* Adjust the line height */
+.pricing-tiers{
+    margin-top: 20vh;
+    display: flex;
 }
 
-.response-message {
-    margin-top: 15vh;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem; /* Adjust the font size */
-    line-height: 1.5; /* Adjust the line height */
-    text-decoration: solid;
-    text-decoration-color: #fff;
+
+.box {
+    width: 20vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    background-color: #fff;
+    padding-bottom: 3vh;
 }
 
-contact-form {
-    margin-top: 50px;
-    width: 70vw;
+.box-title{
+    background-color: #AAFF00;
+    font-size: 1.5rem;
+    margin-bottom: 1.5vh;
+    padding-top: 1.5vh;
+    padding-top: 1.5vh;
 }
 
-.form-control {
-    width: 70vw;
-    background: transparent;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    margin-bottom: 16px;
-    color: #fff;
+.tier-info{
+    background-color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1.5vh;
 }
 
-input {
-    height: 45px;
-    width: 70vw;
-}
-
-.form-control.submit {
-    background: #AAFF00;
-    border-color: transparent;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    height: 50px;
-    margin-top: 20px;
+.contact-us-pricing{
+    background-color: #AAFF00;
     color: #141414;
-    width: 70vw;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 80%;
 }
 
-.form-control.submit:hover {
-    background-color: #a6f30c;
-    cursor: pointer;
-}
 /* BREAKPOINTS */
 @media (max-width: 1275px){
     .icons {
@@ -198,9 +175,31 @@ input {
     }
     
 }
-
 @media (max-width: 992px){
     .header {
         padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .points {
+        display: inline;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .bullet {
+        margin-top: 5vh;
+    }
+
+    .pricing-tiers {
+        display: block;
+    }
+
+    .box {
+        width: 70vw;
+        margin-bottom: 8vh;
     }
 }

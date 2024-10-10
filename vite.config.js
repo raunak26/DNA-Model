@@ -19,6 +19,7 @@ export default defineConfig({
                 about_us: path.resolve('sources', 'about_us.html'),
                 contact_us: path.resolve('sources', 'contact_us.html'),
                 demo: path.resolve('sources', 'demo.html'),
+                pricing: path.resolve('sources', 'pricing.html')
             },
         },
     },
