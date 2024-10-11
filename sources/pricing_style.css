@@ -95,7 +95,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-    background-color: #fff;
+    background:rgba(255, 255, 255, 0.1);
     padding-bottom: 3vh;
 }
 
@@ -108,9 +108,9 @@ body {
 }
 
 .tier-info{
-    background-color: #fff;
     font-size: 1rem;
     margin-bottom: 1.5vh;
+    color: white;
 }
 
 .contact-us-pricing{
