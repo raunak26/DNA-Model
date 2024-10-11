@@ -162,18 +162,12 @@ body {
 
 
 /* BREAKPOINTS */
-@media (max-width: 992px) {
-    .header {
-        padding: 1.3rem 5%;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1275px){
     .icons {
         display: inline-flex;
     }
 
-    #check:checked~.icons #menu-icon {
+    #check:checked~.icons #menu-icon{
         display: none;
     }
 
@@ -181,7 +175,7 @@ body {
         display: none;
     }
 
-    #check:checked~.icons #close-icon {
+    #check:checked~.icons #close-icon{
         display: block;
     }
 
@@ -198,8 +192,8 @@ body {
         transition: .3s ease;
     }
 
-    #check:checked~.navbar {
-        height: 22rem
+    #check:checked~.navbar{
+        height: 24rem;
     }
 
     .navbar a {
@@ -216,7 +210,16 @@ body {
         opacity: 1;
         transition-delay: calc(.15s * var(--i));
     }
+    
+}
 
+@media (max-width: 992px) {
+    .header {
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
     .button-container {
         display: inline;
     }

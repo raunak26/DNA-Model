@@ -129,13 +129,7 @@ body {
 }
 
 /* BREAKPOINTS */
-@media (max-width: 992px){
-    .header {
-        padding: 1.3rem 5%;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1275px){
     .icons {
         display: inline-flex;
     }
@@ -166,7 +160,7 @@ body {
     }
 
     #check:checked~.navbar{
-        height: 17.7rem
+        height: 24rem;
     }
 
     .navbar a {
@@ -183,7 +177,16 @@ body {
         opacity: 1;
         transition-delay: calc(.15s * var(--i));
     }
+    
+}
 
+@media (max-width: 992px){
+    .header {
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
     .points {
         display: inline;
     }
