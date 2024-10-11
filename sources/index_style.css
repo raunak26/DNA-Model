@@ -83,19 +83,19 @@ body {
 }
 
 .intro {
-    top: 75vh;
-    left: 10%;
-    right: 10%;
-    position: fixed;
-    display: block;
-    justify-content: space-between;
-    align-items: center;
+    position: absolute; /* Change from fixed to absolute for more flexibility */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); /* Vertically center the content */
+    width: 50%; /* Adjust this value based on how much space you want the paragraph to take on the left */
+    padding: 2rem;
     z-index: 99;
 }
 
 .intro p {
-    font-size: 1rem;
+    font-size: 2rem;
     color: #fff;
+    text-align: left; /* Align the text to the left */
 }
 
 canvas {
