@@ -69,8 +69,12 @@ body {
     font-weight: 500;
     margin-left: 2.5rem;
     background-color: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-
+.navbar a:hover {
+    color: #AAFF00; /* Highlight color on hover */
+    transform: scale(1.1); /* Slightly increase size */
+}
 #check {
     display: none;
 }

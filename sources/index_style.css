@@ -67,8 +67,12 @@ body {
      text-decoration: none;
      font-weight: 500;
      margin-left: 2.5rem;
+     transition: transform 0.3s ease, color 0.3s ease;
 }
-
+.navbar a:hover {
+    color: #AAFF00; /* Highlight color on hover */
+    transform: scale(1.1); /* Slightly increase size */
+}
 #check {
     display: none;
 }
@@ -87,15 +91,18 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%); /* Vertically center the content */
-    width: 50%; /* Adjust this value based on how much space you want the paragraph to take on the left */
+    width: 70%;
     padding: 2rem;
     z-index: 99;
 }
 
 .intro p {
-    font-size: 2rem;
+    bottom: 0; /* Align the text to the bottom */
+    left: 0; /* Align the text to the left */
+    font-size: 2.3vw;
     color: #fff;
-    text-align: left; /* Align the text to the left */
+    padding: 10px; /* Optional: add some padding for spacing */
+    margin-top: 15vh;
 }
 
 canvas {
@@ -111,8 +118,13 @@ canvas {
     z-index: 1;
 }
 
+
 /* BREAKPOINTS */
+
 @media (max-width: 1275px){
+    .intro p {
+        font-size: 3vw;
+    }
     .icons {
         display: inline-flex;
     }
@@ -178,5 +190,12 @@ canvas {
 @media (max-width: 425px) {
     .intro {
         top: 50vh;
+    }
+}
+
+@media (max-width: 500px){
+    .intro p {
+        margin-bottom: 40vh;
+        font-size: 5.5vw;
     }
 }
