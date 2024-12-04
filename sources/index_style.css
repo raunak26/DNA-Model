@@ -91,7 +91,7 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%); /* Vertically center the content */
-    width: 70%; /* Adjust this value based on how much space you want the paragraph to take on the left */
+    width: 70%;
     padding: 2rem;
     z-index: 99;
 }
